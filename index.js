@@ -30,11 +30,12 @@ console.log('example task:', processFirstItem(['foo','bar'],function(str){return
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+    'counter1' creates a new variable that calls a seperate function countermaker while 'counter2' is its own function
   2. Which of the two uses a closure? How can you tell?
-  
+    counter1 uses closure because it accesses variables in the 'counterMaker'
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+     'counter1' is more preferable when needing to create a local function that wont effect global scope, 'counter2' when needing a function that has global access 
 */
 
 // counter1 code
@@ -64,8 +65,8 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+  return Math.floor(Math.random() * 3);
 }
 
 
@@ -83,8 +84,19 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*Code Here*/){
-  /*Code Here*/
+function finalScore(inning, innings) {
+  let homeScore = 0;
+  let awayScore = 0;
+
+  for (let i = 0; i < innings; i++) {
+      homeScore += inning();
+      awayScore += inning();
+  }
+
+  return {
+      "Home": homeScore,
+      "Away": awayScore
+  };
 }
 
 
@@ -100,10 +112,11 @@ For example: invoking getInningScore(inning) might return this object:
 }
   */
 
-
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
-
+function getInningScore(inningCallback) {
+  return {
+      "Home": inningCallback(),
+      "Away": inningCallback()
+  };
 }
 
 

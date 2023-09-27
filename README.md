@@ -61,6 +61,7 @@ You will be running your tests in one terminal and debugging in the other. As yo
 Edit the `ReadMe` file with your answers to the questions below.
 
 1. In your own words, define closure (1-2 sentences).
+Closure lets functions access variables in the scope they were created in.
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -82,9 +83,11 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+ The function is closing over the "name" variable to the message that will be console logged. Closure is used on line 72
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+  What will be the same is the function is that the function will closer over the name variable everytime, the changes would be the number the dice lands on or the random number that is generated.
 c. What is the lexical scope of `newRoll`? 
-
+ The lexical scope of 'newRoll' is within the function and connot be accessed outside of the function. 
 
 ### Task 3 - Stretch Goals
 
